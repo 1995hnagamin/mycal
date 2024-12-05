@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Wpedantic
 
 TARGET = mycal
-OBJS = mycal.o
+OBJS = mycal.o calendar.o
 
 $(TARGET): $(OBJS)
 
