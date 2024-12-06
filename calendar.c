@@ -8,6 +8,19 @@ bool is_leap_year(int year) {
 	return (year % 4 == 0);
 }
 
+static int const nday[] = {
+	31,
+	31, 28, 31, 30, 31, 30,
+	31, 31, 30, 31, 30, 31,
+};
+
+int nday_in_month(int year, int month) {
+	if (is_leap_year(year) && month == 2) {
+		return 29;
+	}
+	return nday[month];
+}
+
 dow_t calc_dow(int year, int month, int day) {
 	if (month <= 2) {
 		year -= 1;

@@ -3,6 +3,8 @@
 
 bool is_leap_year(int year);
 
+int nday_in_month(int year, int month);
+
 /* ISO 8601 day of week */
 enum dow {
 	SUNDAY = 1,
