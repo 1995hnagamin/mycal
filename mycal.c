@@ -38,14 +38,10 @@ cell_array_t get_cell_array(int year, int month) {
 }
 
 void show_calendar(int year, int month){
-	dow_t const first_dow = calc_dow(year, month, 1);
-	int const cell_offset = (13 - first_dow) % 7;
-	char const *(*cells)[7] =
-		(char const *(*)[7])(day_cells + cell_offset);
-
 	printf("%s %d\n", formatted_month_names[month], year);
 	printf("Su Mo Tu We Th Fr Sa\n");
 
+	cell_array_t cells = get_cell_array(year, month);
 	char const **cell_end = day_cells + 6 + nday_in_month(year, month);
 	for (int week = 0; week < 6; ++week) {
 		int const i_end = min_i(7, cell_end - &cells[week][0]);
