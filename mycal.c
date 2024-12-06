@@ -4,19 +4,19 @@
 #include "calendar.h"
 
 char const *formatted_month_names[] = {
-	"     December",
-	"     January",
-	"     February",
-	"      March",
-	"      April",
-	"       May",
-	"       June",
-	"       July",
-	"      August",
-	"    September",
-	"     October",
-	"     November",
-	"     December",
+	"    December",
+	"    January",
+	"    February",
+	"     March",
+	"     April",
+	"      May",
+	"      June",
+	"      July",
+	"     August",
+	"   September",
+	"    October",
+	"    November",
+	"    December",
 };
 
 char const *day_cells[] = {
@@ -35,7 +35,7 @@ void show_calendar(int year, int month){
 		(char const *(*)[7])(day_cells + cell_offset);
 
 	printf("%s %d\n", formatted_month_names[month], year);
-	printf(" Su Mo Tu We Th Fr Sa\n");
+	printf("Su Mo Tu We Th Fr Sa\n");
 
 	char const **cell_end = day_cells + 6 + nday_in_month(year, month);
 	for (int week = 0; week < 6; ++week) {
@@ -43,7 +43,7 @@ void show_calendar(int year, int month){
 			if (&cells[week][i] >= cell_end) {
 				break;
 			}
-			printf(" %s", cells[week][i]);
+			printf("%s%s", i > 0 ? " " : "", cells[week][i]);
 		}
 		printf("\n");
 	}
