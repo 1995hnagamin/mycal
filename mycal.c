@@ -27,9 +27,7 @@ char const *day_cells[] = {
 	"29", "30", "31",
 };
 
-int main(void) {
-	int const year = 2015;
-	int const month = 2;
+void show_calendar(int year, int month){
 	dow_t first_dow = calc_dow(year, month, 1);
 	int cell_offset = (13 - first_dow) % 7;
 	char const *(*cells)[7] =
@@ -42,11 +40,17 @@ int main(void) {
 	for (int week = 0; week < 6; ++week) {
 		for (int i = 0; i < 7; ++i) {
 			if (&cells[week][i] == cell_end) {
-				break;
+				return;
 			}
 			printf(" %s", cells[week][i]);
 		}
 		printf("\n");
 	}
+}
+
+int main(void) {
+	int const year = 2015;
+	int const month = 2;
+	show_calendar(year, month);
 	return 0;
 }
