@@ -54,8 +54,8 @@ int main(int argc, char const *argv[]) {
 		fprintf(stderr, "Usage: %s <month> <year>\n", argv[0]);
 		return 1;
 	}
-	int const year = atoi(argv[2]);
 	int const month = atoi(argv[1]);
+	int const year = atoi(argv[2]);
 	show_calendar(year, month);
 	return 0;
 }
