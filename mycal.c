@@ -35,7 +35,7 @@ void show_calendar(int year, int month){
 		(char const *(*)[7])(day_cells + cell_offset);
 
 	printf("%s %d\n", formatted_month_names[month], year);
-	puts(" Su Mo Tu We Th Fr Sa");
+	printf(" Su Mo Tu We Th Fr Sa\n");
 
 	char const **cell_end = day_cells + 6 + nday_in_month(year, month);
 	for (int week = 0; week < 6; ++week) {
