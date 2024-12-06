@@ -39,10 +39,8 @@ void show_calendar(int year, int month){
 
 	char const **cell_end = day_cells + 6 + nday_in_month(year, month);
 	for (int week = 0; week < 6; ++week) {
-		for (int i = 0; i < 7; ++i) {
-			if (&cells[week][i] >= cell_end) {
-				break;
-			}
+		int const i_end = min_i(7, cell_end - &cells[week][0]);
+		for (int i = 0; i < i_end; ++i) {
 			printf("%s%s", i > 0 ? " " : "", cells[week][i]);
 		}
 		printf("\n");
