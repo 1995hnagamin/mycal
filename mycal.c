@@ -39,13 +39,18 @@ void show_calendar(int year, int month){
 
 	char const **cell_end = day_cells + 6 + nday_in_month(year, month);
 	for (int week = 0; week < 6; ++week) {
+		bool breaked = false;
 		for (int i = 0; i < 7; ++i) {
 			if (&cells[week][i] == cell_end) {
-				return;
+				breaked = true;
+				break;
 			}
 			printf(" %s", cells[week][i]);
 		}
 		printf("\n");
+		if (breaked) {
+			return;
+		}
 	}
 }
 
