@@ -29,6 +29,14 @@ char const *day_cells[] = {
 	"29", "30", "31",
 };
 
+typedef char const *(*cell_array_t)[7];
+
+cell_array_t get_cell_array(int year, int month) {
+	dow_t const first_dow = calc_dow(year, month, 1);
+	int const cell_offset = (13 - first_dow) % 7;
+	return (cell_array_t)(day_cells + cell_offset);
+}
+
 void show_calendar(int year, int month){
 	dow_t const first_dow = calc_dow(year, month, 1);
 	int const cell_offset = (13 - first_dow) % 7;
