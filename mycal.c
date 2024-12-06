@@ -29,8 +29,8 @@ char const *day_cells[] = {
 };
 
 void show_calendar(int year, int month){
-	dow_t first_dow = calc_dow(year, month, 1);
-	int cell_offset = (13 - first_dow) % 7;
+	dow_t const first_dow = calc_dow(year, month, 1);
+	int const cell_offset = (13 - first_dow) % 7;
 	char const *(*cells)[7] =
 		(char const *(*)[7])(day_cells + cell_offset);
 
