@@ -37,8 +37,13 @@ int main(void) {
 
 	printf("%s %d\n", formatted_month_names[month], year);
 	puts(" Su Mo Tu We Th Fr Sa");
+
+	char const **cell_end = day_cells + 6 + nday_in_month(year, month);
 	for (int week = 0; week < 4; ++week) {
 		for (int i = 0; i < 7; ++i) {
+			if (&cells[week][i] == cell_end) {
+				break;
+			}
 			printf(" %s", cells[week][i]);
 		}
 		printf("\n");
