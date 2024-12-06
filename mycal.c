@@ -2,6 +2,22 @@
 #include <stdio.h>
 #include "calendar.h"
 
+char const *formatted_month_names[] = {
+	"     December",
+	"     January",
+	"     February",
+	"      March",
+	"      April",
+	"       May",
+	"       June",
+	"       July",
+	"      August",
+	"    September",
+	"     October",
+	"     November",
+	"     December",
+};
+
 char const *day_cells[] = {
 	"  ", "  ", "  ", "  ", "  ", "  ",
 	" 1", " 2", " 3", " 4", " 5", " 6", " 7",
@@ -19,7 +35,7 @@ int main(void) {
 	char const *(*cells)[7] =
 		(char const *(*)[7])(day_cells + cell_offset);
 
-	puts("     February 2015");
+	printf("%s %d\n", formatted_month_names[month], year);
 	puts(" Su Mo Tu We Th Fr Sa");
 	for (int week = 0; week < 4; ++week) {
 		for (int i = 0; i < 7; ++i) {
