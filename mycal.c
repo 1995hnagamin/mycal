@@ -31,7 +31,7 @@ int main(void) {
 	int const year = 2015;
 	int const month = 2;
 	dow_t first_dow = calc_dow(year, month, 1);
-	int cell_offset = 13 - first_dow;
+	int cell_offset = (13 - first_dow) % 7;
 	char const *(*cells)[7] =
 		(char const *(*)[7])(day_cells + cell_offset);
 
