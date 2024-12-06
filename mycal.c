@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "calendar.h"
+#include "util.h"
 
 char const *formatted_month_names[] = {
 	"    December",
